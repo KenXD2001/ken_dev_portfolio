@@ -59,7 +59,7 @@
 }
 
 .home__img {
-  background: url(../../assets/profile01.png);
+  background: url(../../assets/profile01.webp);
   filter: grayscale(100%);
   background-repeat: no-repeat;
   background-position: center;
