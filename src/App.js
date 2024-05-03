@@ -5,6 +5,11 @@ import Home from './components/home/home';
 import About from './components/about/about';
 import Skills from './components/skills/skills';
 import Services from './components/services/services';
+import Qualification from './components/qualification/qualification';
+import Testimonials from './components/testimonials/testimonials';
+import Contact from './components/contact/contact';
+import Footer from './components/footer/footer';
+import ScrollUp from './components/scrollup/scrollUp';
 
 const App = () => {
   return (
@@ -16,7 +21,13 @@ const App = () => {
         <About />
         <Skills />
         <Services />
+        <Qualification />
+        <Testimonials />
+        <Contact />
       </main>
+
+      <Footer />
+      <ScrollUp />
     </>
   )
 }
