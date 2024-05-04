@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3891657e.css",
+    "main.js": "/static/js/main.3b255e77.js",
+    "static/media/profile01.webp": "/static/media/profile01.3ab2d217953d1b65350f.webp",
+    "static/media/profile02.webp": "/static/media/profile02.1f089029dfe3749976ea.webp",
+    "static/media/My_Resume.pdf": "/static/media/My_Resume.8e52273abb26a616a1b1.pdf",
+    "static/media/testimonial1.png": "/static/media/testimonial1.070ff864fd2c114a4718.png",
+    "static/media/testimonial3.png": "/static/media/testimonial3.de68a6c789817f3e68fb.png",
+    "static/media/testimonial2.png": "/static/media/testimonial2.d357cde96da0c4d77050.png",
+    "static/media/chetak_product_page.webp": "/static/media/chetak_product_page.3dd9c582dabd089cdb12.webp",
+    "static/media/DigiParikshak.webp": "/static/media/DigiParikshak.faee66c099375fea3012.webp",
+    "static/media/authentication_system.webp": "/static/media/authentication_system.f3ffe82ed84b06703ba9.webp",
+    "static/media/my_portfolio.webp": "/static/media/my_portfolio.61140ace4ee3bc30d6c5.webp",
+    "static/media/weather_app.webp": "/static/media/weather_app.2d31e595b4f05a5f209e.webp",
+    "index.html": "/index.html",
+    "main.3891657e.css.map": "/static/css/main.3891657e.css.map",
+    "main.3b255e77.js.map": "/static/js/main.3b255e77.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3891657e.css",
+    "static/js/main.3b255e77.js"
+  ]
+}
