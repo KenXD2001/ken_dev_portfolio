@@ -5,13 +5,17 @@
 }
 
 .about__img {
+  filter: grayscale(100%);
   width: 350px;
   height: 350px;
   border-radius: 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 9px rgb(225 225 225 / 30%);
   object-fit: cover;
   justify-self: center;
-  filter: grayscale(100%);
-  transition: ease 0.3s;
+  transition: filter ease 0.3s;
 }
 
 .about__img:hover {

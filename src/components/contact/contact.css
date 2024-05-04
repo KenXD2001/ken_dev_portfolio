@@ -26,10 +26,26 @@
   text-align: center;
 }
 
+/* .contact__card:hover .mail-icon {
+  color: rgb(234, 71, 57);
+  filter: drop-shadow(0 0 5px rgba(234, 71, 57, 0.3));
+} */
+
+/* .contact__card:hover .whatsapp-icon {
+  color: rgb(12, 166, 45);
+  filter: drop-shadow(0 0 5px rgba(12, 166, 45, 0.3));
+} */
+
+/* .contact__card:hover .messenger-icon {
+  color: rgb(30, 131, 255);
+  filter: drop-shadow(0 0 5px rgba(30, 131, 255, 0.3));
+} */
+
 .contact__card-icon {
   font-size: 2rem;
   color: var(--title-color);
   margin-bottom: var(--mb-0-25);
+  transition: ease 0.3s;
 }
 
 .contact__card-title,

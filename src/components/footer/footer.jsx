@@ -17,21 +17,21 @@ const Footer = () => {
                     </li>
 
                     <li>
-                        <a href='testimonials' className='footer__link'>Testimonials</a>
+                        <a href='testimonials' className='footer__link'>Services</a>
                     </li>
                 </ui>
 
                 <div className='footer__social'>
-                    <a href="#" className="footer__social-link" target="_blank">
+                    <a href="https://www.facebook.com/ashwin.bhardwaj.5496/" className="footer__social-link" target="_blank" rel="noreferrer">
                         <i className='bx bxl-facebook'></i>
                     </a>
 
-                    <a href="#" className="footer__social-link" target="_blank">
+                    <a href="https://www.instagram.com/ashwinbhardwaj2613/" className="footer__social-link" target="_blank" rel="noreferrer">
                         <i className='bx bxl-instagram'></i>
                     </a>
 
-                    <a href="#" className="footer__social-link" target="_blank">
-                        <i className='bx bxl-twitter'></i>
+                    <a href="https://www.linkedin.com/in/ashwin-bhardwaj-0480a925a" className="footer__social-link" target="_blank" rel="noreferrer">
+                        <i className='bx bxl-linkedin'></i>
                     </a>
                 </div>
 

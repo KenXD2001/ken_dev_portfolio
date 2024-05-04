@@ -6,20 +6,20 @@ export const Data = [
     {
         id: 1,
         image: Image1,
-        title: "john Doe",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat "
+        title: "Raman Singh",
+        description: "Exceptional video editing skills! The service consistently delivers polished and creative content. Highly recommended!"
     },
     {
         id: 2,
         image: Image2,
-        title: "john Doe",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat "
+        title: "Nita Agrawal",
+        description: "Remarkable web development proficiency! Consistently delivering high-quality, functional websites tailored to diverse requirements. Highly recommended! "
     },
     {
         id: 3,
         image: Image3,
-        title: "john Doe",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat "
+        title: "Utkarsh Kumar",
+        description: "Impeccable web design expertise! The service consistently delivers visually stunning and user-friendly interfaces that captivate audiences. Highly recommended! "
     }
 
 ]
