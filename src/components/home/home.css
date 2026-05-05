@@ -6,7 +6,7 @@
   grid-template-columns: 116px repeat(2, 1fr);
   padding-top: 5.5rem;
   column-gap: 2rem;
-  align-items: centre;
+  align-items: center;
 }
 
 .home__social {
@@ -55,23 +55,31 @@
 }
 
 .home__description {
-  max-width: 400px;
+  max-width: 520px;
   margin-bottom: var(--mb-3);
+  line-height: 1.85;
+  color: var(--text-color);
 }
 
 .home__img {
-  background: url(../../assets/profile01.webp);
+  background: url(../../assets/hero_profile_image.webp);
   filter: grayscale(100%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  box-shadow: inset 0 0 0 9px rgb(225 225 225 / 30%);
+  box-shadow: inset 0 0 0 9px rgba(225, 225, 225, 0.3);
   order: 1;
   justify-self: center;
   width: 350px;
   height: 350px;
+  border-radius: 2rem;
   animation: profile__animate 8s ease-in-out infinite 1s;
-  transition: ease 0.3s;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.home__img:hover {
+  filter: grayscale(0%);
+  transform: translateY(-6px);
 }
 
 .home__img:hover {

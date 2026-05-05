@@ -9,13 +9,14 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --hue: 0;
-  --sat: 0%;
-  --title-color: hsl(var(--hue), var(--sat), 20%);
-  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
-  --text-color: hsl(var(--hue), var(--sat), 46%);
-  --body-color: hsl(var(--hue), var(--sat), 98%);
-  --container-color: #fff;
+  --hue: 220;
+  --sat: 10%;
+  --title-color: hsl(var(--hue), calc(var(--sat) + 10%), 18%);
+  --title-color-dark: hsl(var(--hue), calc(var(--sat) + 10%), 7%);
+  --text-color: hsl(var(--hue), calc(var(--sat) + 10%), 40%);
+  --body-color: #f8fafc;
+  --container-color: #ffffff;
+  --shadow-color: rgba(15, 23, 42, 0.08);
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -129,6 +130,9 @@ img {
   display: block;
   font-size: var(--small-font-size);
   margin-bottom: 4rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(34, 49, 63, 0.7);
 }
 
 .section__title,
@@ -138,9 +142,11 @@ img {
 
 /*=============== LAYOUT ===============*/
 .container {
-  max-width: 968px;
+  width: min(1120px, 100%);
   margin-left: auto;
   margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .grid {
@@ -150,20 +156,72 @@ img {
 
 /*=============== BUTTONS ===============*/
 .button {
-  display: inline-block;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--title-color);
   color: var(--container-color);
-  padding: 1.25rem 2rem;
-  border-radius: 1rem;
+  padding: 1.1rem 1.8rem;
+  border-radius: 999px;
   font-weight: var(--font-medium);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--container-color);
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 0.35s ease;
+  z-index: 0;
 }
 
 .button:hover {
-  background-color: var(--title-color-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.12);
+  border-color: var(--title-color-dark);
+  color: var(--title-color-dark);
+}
+
+.button:hover::before {
+  transform: scaleY(1);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button__text,
+.button__icon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .button__icon {
   margin-left: var(--mb-0-5);
+}
+
+.button:hover .button__text {
+  transform: translateY(-1px);
+}
+
+.button:hover .button__icon {
+  transform: translateY(-1px) translateX(4px) rotate(10deg);
+}
+
+.button:active .button__text {
+  transform: translateY(1px);
+}
+
+.button:active .button__icon {
+  transform: translateY(1px) translateX(2px) rotate(5deg);
 }
 
 .button--flex {

@@ -1,7 +1,7 @@
 .contact__container {
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
   justify-content: center;
-  column-gap: 6rem;
+  gap: 2rem;
   padding-bottom: 3rem;
 }
 
@@ -20,10 +20,18 @@
 
 .contact__card {
   background-color: var(--container-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  border-radius: 075rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1.2rem 1.25rem;
+  border-radius: 1.5rem;
   text-align: center;
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contact__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.1);
+  border-color: rgba(15, 23, 42, 0.14);
 }
 
 /* .contact__card:hover .mail-icon {
@@ -81,7 +89,14 @@
 }
 
 .contact__form {
-  width: 360px;
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.06);
 }
 
 .contact__form-div {
@@ -96,13 +111,29 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  background: none;
+  border: 2px solid transparent;
+  background: rgba(15, 23, 42, 0.03);
   color: var(--text-color);
   outline: none;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  border-radius: 0.85rem;
+  padding: 1.4rem 1.25rem;
   z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact__form-input:focus {
+  border-color: var(--title-color);
+  box-shadow: 0 0 0 3px hsla(var(--hue), calc(var(--sat) + 10%), 18%, 0.15), 0 0 0 1px var(--title-color);
+}
+
+.contact__form-input:active {
+  border-color: var(--title-color);
+  box-shadow: 0 0 0 2px hsla(var(--hue), calc(var(--sat) + 10%), 18%, 0.2), 0 0 0 1px var(--title-color);
+  transform: scale(0.99);
+}
+
+.contact__form-input:hover {
+  border-color: hsla(var(--hue), calc(var(--sat) + 10%), 18%, 0.5);
 }
 
 .contact__form-tag {

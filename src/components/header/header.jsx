@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./header.css";
 
 const Header = () => {
-    /*=============== Chnage Background Header ===============*/
-    window.addEventListener("scroll", function () {
-        const header = this.document.querySelector(".header");
-        // when the scroll is higher than 200 viewport height, add the show-header class to a tag with the header tag
-        if (this.scrollY >= 100) header.classList.add
-            ("scroll-header");
-        else header.classList.remove("scroll-header");
-    });
-    /*=============== Toggle Menu ===============*/
-    const [Toggle, showMenu] = useState(false)
-    const [activeNav, setActiveNav] = useState("#home")
+    const [toggle, setToggle] = useState(false);
+    const [activeNav, setActiveNav] = useState("#home");
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const header = document.querySelector(".header");
+            if (!header) return;
+
+            if (window.scrollY >= 100) {
+                header.classList.add("scroll-header");
+            } else {
+                header.classList.remove("scroll-header");
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <header className='header'>
             <nav className='nav container'>
-                <a href='index.html' className='nav__logo'>Ken@Dev.in</a>
+                <a href='#home' className='nav__logo'>Ken@Dev.in</a>
 
-                <div className={Toggle ? "nav__menu show-menu" : "nav__menu"}>
+                <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className='nav__list grid'>
                         <li className='nav__item'>
                             <a
@@ -62,9 +70,9 @@ const Header = () => {
                         </li>
                     </ul>
 
-                    <i className='uil uil-times nav__close' onClick={() => showMenu(!Toggle)}></i>
+                    <i className='uil uil-times nav__close' onClick={() => setToggle(!toggle)} aria-label='Close menu'></i>
                 </div>
-                <div className='nav__toggle' onClick={() => showMenu(!Toggle)}>
+                <div className='nav__toggle' role='button' aria-label='Toggle menu' onClick={() => setToggle(!toggle)}>
                     <i className='uil uil-apps'></i>
                 </div>
             </nav>

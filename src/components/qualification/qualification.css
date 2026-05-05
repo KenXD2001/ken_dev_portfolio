@@ -11,13 +11,24 @@
 .qualification__button {
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
-  color: var(--title-color);
+  color: rgba(15, 23, 42, 0.75);
   margin: 0 var(--mb-1);
   cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 0.25s ease;
 }
 
 .qualification__button:hover {
+  color: var(--title-color);
+  background-color: rgba(15, 23, 42, 0.05);
+}
+
+.qualification__active {
   color: var(--title-color-dark);
+  background-color: rgba(15, 23, 42, 0.08);
+  border-color: rgba(15, 23, 42, 0.12);
 }
 
 .qualification__icon {
