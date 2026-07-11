@@ -1,141 +1,58 @@
-import React, { useState } from 'react';
-import "./qualification.css"
+import React, { useState } from 'react'
 
 const Qualification = () => {
-
     const [toggleState, setToggleState] = useState(1);
+    const toggleTab = (index) => setToggleState(index);
 
-    const toggleTab = (index) => {
-        setToggleState(index);
-    }
+    const timelineData = {
+        education: [
+            { year: "2023-2024", title: "Full-Stack Web Development", subtitle: "EdYoda Digital University, Bangalore" },
+            { year: "2023", title: "Bachelor of Arts-Economics", subtitle: "University of Delhi, Delhi" },
+            { year: "2020", title: "Higher Secondary School - CBSE", subtitle: "C B S E, Ajmer" },
+        ],
+        experience: [
+            { year: "2024-Present", title: "Frontend Developer", subtitle: "Websutotra Consulting Pvt. Ltd., Bangalore" },
+            { year: "2023-2024", title: "Web Developer Intern", subtitle: "Websutotra Consulting Pvt. Ltd., Bangalore" },
+        ]
+    };
+
+    const activeData = toggleState === 1 ? timelineData.education : timelineData.experience;
 
     return (
-        <section className="qualification section">
+        <section className="section">
             <h2 className="section__title">Qualification</h2>
             <span className="section__subtitle">My personal journey</span>
 
-            <div className='qualification__container container'>
-                <div className="qualification__tabs">
-                    <div className={toggleState === 1 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"}
-                        onClick={() => toggleTab(1)}>
-                        <i className="uil uil-graduation-cap qualification__icon"></i> Education
+            <div className="container">
+                <div className="flex justify-center mb-14 max-[576px]:gap-0">
+                    <div className={`text-lg font-medium cursor-pointer mx-9 px-6 py-2 rounded-xl transition-all duration-200 max-[576px]:text-sm max-[576px]:mx-4 max-[576px]:px-4 ${toggleState === 1 ? "bg-primary text-primary-foreground" : "hover:bg-primary/10 text-foreground"}`} onClick={() => toggleTab(1)}>
+                        <i className="uil uil-graduation-cap mr-2"></i>Education
                     </div>
-
-                    <div className={toggleState === 2 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"}
-                        onClick={() => toggleTab(2)}>
-                        <i className="uil uil-briefcase-alt qualification__icon"></i> Experience
+                    <div className={`text-lg font-medium cursor-pointer mx-9 px-6 py-2 rounded-xl transition-all duration-200 max-[576px]:text-sm max-[576px]:mx-4 max-[576px]:px-4 ${toggleState === 2 ? "bg-primary text-primary-foreground" : "hover:bg-primary/10 text-foreground"}`} onClick={() => toggleTab(2)}>
+                        <i className="uil uil-briefcase-alt mr-2"></i>Experience
                     </div>
                 </div>
 
-                <div className="qualification__sections">
-                    <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">MCA</h3>
-                                <span className='qualification__subtitle'>Bangalore - JAIN University</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2023 - Present
+                <div className="relative mx-auto max-w-[700px]">
+                    <div className="absolute left-[14px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-foreground/15"></div>
+
+                    {activeData.map((item, index) => {
+                        const isEven = index % 2 === 0;
+
+                        return (
+                            <div key={index} className="relative pb-14 last:pb-0">
+                                {/* Dot */}
+                                <div className="absolute top-6 left-[14px] md:left-1/2 z-10 w-2.5 h-2.5 bg-primary rounded-full -translate-x-1/2"></div>
+
+                                {/* Content */}
+                                <div className={`pl-10 pr-4 md:pl-0 md:pr-0 md:w-1/2 max-[400px]:pl-8 ${isEven ? "md:ml-0 md:mr-auto md:text-right md:pr-10" : "md:ml-auto md:mr-0 md:text-left md:pl-10"}`}>
+                                    <span className="text-xs font-semibold tracking-wide uppercase text-primary leading-none block mb-1.5">{item.year}</span>
+                                    <h3 className="text-base font-semibold leading-snug">{item.title}</h3>
+                                    <span className="text-sm leading-relaxed text-muted-foreground">{item.subtitle}</span>
                                 </div>
                             </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-                            <div></div>
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                            <div>
-                                <h3 className="qualification__title">BCA</h3>
-                                <span className='qualification__subtitle'>Bangalore - Presidency University</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2020 - 2021
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">Intermediate</h3>
-                                <span className='qualification__subtitle'>Nagpur - S.K.Porwal</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2018 - 2020
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-                            <div></div>
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                            <div>
-                                <h3 className="qualification__title">Matriculation</h3>
-                                <span className='qualification__subtitle'>Nagpur - SNV School</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2017 - 2018
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className={toggleState === 2 ? "qualification__content qualification__content-active" : "qualification__content"}>
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">Frontend Web Developer</h3>
-                                <span className='qualification__subtitle'>DGcrux - Bangalore</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2023 - Present
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-                            <div></div>
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                            <div>
-                                <h3 className="qualification__title">Freelancer</h3>
-                                <span className='qualification__subtitle'>SelfCode - Bangalroe</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2021 - 2022
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="qualification__data">
-                            <div>
-                                <h3 className="qualification__title">Web Development</h3>
-                                <span className='qualification__subtitle'>University Projects - Bangalore</span>
-                                <div className="qualification__calendar">
-                                    <i className="uil uil-calendar-alt"></i> 2020 - 2022
-                                </div>
-                            </div>
-
-                            <div>
-                                <span className="qualification__rounder"></span>
-                                <span className="qualification__line"></span>
-                            </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

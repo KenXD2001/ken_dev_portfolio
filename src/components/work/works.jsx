@@ -1,52 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import { projectsData } from './data'
-import { projectsNav } from './data'
-import WorkItems from './workItems'
+import React, { useState } from 'react'
+import WorkItems from './workItems';
+import { projectsData as projectData, projectsNav as projectNav } from './data';
 
 const Works = () => {
-
     const [item, setItem] = useState({ name: "all" });
-    const [projects, setProjects] = useState([]);
-    const [active, setActive] = useState(0);
 
-    useEffect(() => {
-        if (item.name === "all") {
-            setProjects(projectsData);
-        }
-
-        else {
-            const newProjects = projectsData.filter((project) => {
-                return project.category === item.name;
-            });
-            setProjects(newProjects);
-        }
-    }, [item]);
-
-    const handleClick = (name, index) => {
-        setItem({ name });
-        setActive(index);
-    }
+    const projects = item.name === "all"
+        ? projectData
+        : projectData.filter((project) => project.category === item.name);
 
     return (
         <div>
-            <div className='work__filters'>
-                {projectsNav.map((item, index) => {
-                    return (
-                        <span
-                            onClick={() => handleClick(item.name, index)}
-                            className={`${active === index ? 'active-work' : ''} work__item`}
-                            key={index}
-                        >
-                            {item.name}
-                        </span>
-                    );
-                })}
+            <div className="flex justify-center gap-8 mb-12 max-[768px]:gap-5">
+                {projectNav.map((nav, index) => (
+                    <span
+                        key={index}
+                        className={`text-sm text-muted-foreground cursor-pointer px-3 py-1 rounded-lg transition-all duration-200 ${item.name === nav.name ? "active-work" : "hover:bg-primary/10"}`}
+                        onClick={() => setItem({ name: nav.name })}
+                    >
+                        {nav.name}
+                    </span>
+                ))}
             </div>
 
-            <div className="work__container container grid">
-                {projects.map((item) => {
-                    return <WorkItems item={item} key={item.id} />
-                })}
+            <div className="container grid grid-cols-[repeat(3,minmax(250px,1fr))] gap-x-8 gap-y-20 max-[992px]:grid-cols-[repeat(2,minmax(250px,1fr))] max-[576px]:grid-cols-1 max-[576px]:gap-y-14">
+                {projects.map((project, index) => (
+                    <WorkItems item={project} key={index} />
+                ))}
             </div>
         </div>
     )
