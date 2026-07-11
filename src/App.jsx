@@ -23,6 +23,7 @@ const App = () => {
     } else {
       root.classList.remove("dark");
     }
+    document.querySelector('meta[name="color-scheme"]')?.setAttribute("content", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
@@ -32,10 +33,11 @@ const App = () => {
       setTheme(newTheme);
       return;
     }
+    const btn = e?.currentTarget || document.querySelector('[aria-label="Toggle theme"]');
     let x = window.innerWidth / 2;
     let y = window.innerHeight / 2;
-    if (e?.currentTarget) {
-      const rect = e.currentTarget.getBoundingClientRect();
+    if (btn) {
+      const rect = btn.getBoundingClientRect();
       x = rect.left + rect.width / 2;
       y = rect.top + rect.height / 2;
     }
