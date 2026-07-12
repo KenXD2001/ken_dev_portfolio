@@ -288,6 +288,50 @@ img {
   }
 }
 
+/*=============== CUSTOM CURSOR ===============*/
+@media (pointer: fine) {
+  html, body, a, button, input, textarea, [data-cursor-hover] {
+    cursor: none;
+  }
+}
+
+.cursor {
+  pointer-events: none;
+}
+.cursor__ball {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.cursor__ball circle {
+  fill: var(--primary);
+}
+.cursor__ball--small.overlapping:not(.hovering) circle {
+  fill: var(--background);
+}
+.cursor__ball--big.hovering {
+  mix-blend-mode: difference;
+}
+.cursor__ball--big.hovering circle {
+  fill: var(--primary);
+}
+.cursor__ball--small.hovering {
+  mix-blend-mode: difference;
+}
+.cursor__ball--small.hovering circle {
+  fill: var(--background);
+}
+
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  .cursor {
+    display: none;
+  }
+}
+
 /*=============== SWIPER ===============*/
 .swiper-pagination-bullet {
   background-color: var(--muted-foreground) !important;

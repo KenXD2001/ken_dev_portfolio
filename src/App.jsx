@@ -12,6 +12,7 @@ import Contact from './components/contact/contact';
 import Footer from './components/footer/footer';
 import ScrollUp from './components/scrollup/scrollUp';
 import Portfolio from './components/work/portfolio';
+import CustomCursor from './components/custom-cursor/custom-cursor';
 
 const App = () => {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
@@ -50,6 +51,7 @@ const App = () => {
 
   return (
     <>
+      <CustomCursor />
       <Header toggleTheme={toggleTheme} theme={theme} />
 
       <main className='main'>
