@@ -3,7 +3,7 @@ import React from 'react'
 const ScrollDown = () => {
     return (
         <div className="ml-[9.25rem] max-[992px]:ml-[7.5rem] max-[768px]:hidden">
-            <a href="#about" className="inline-flex items-center button--flex">
+            <a href="#about" className="inline-flex items-center">
                 <svg
                     width="32px"
                     height="32px"

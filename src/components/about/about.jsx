@@ -10,18 +10,22 @@ const About = () => {
             <span className="section__subtitle">My introduction</span>
 
             <div className="container grid grid-cols-[repeat(2,minmax(280px,1fr))] items-center gap-x-14 max-[992px]:grid-cols-1 max-[992px]:gap-y-10">
-                <img
-                    src={AboutImg}
-                    alt="Profile image of Ashwin Bhardwaj"
-                    className="w-full max-w-[360px] h-[360px] rounded-[2rem] object-cover justify-self-center shadow-[inset_0_0_0_9px_rgba(225,225,225,0.3)] max-[992px]:w-[220px] max-[992px]:h-[220px] max-[400px]:w-[180px] max-[400px]:h-[180px]"
-                />
+                <div className="relative justify-self-center">
+                    <div className="absolute inset-0 rounded-[2rem] bg-primary/10 blur-2xl scale-110"></div>
+                    <img
+                        src={AboutImg}
+                        alt="Profile image of Ashwin Bhardwaj"
+                        loading="lazy"
+                        className="relative w-full max-w-[360px] h-[360px] rounded-[2rem] object-cover ring-[9px] ring-background shadow-xl max-[992px]:w-[220px] max-[992px]:h-[220px] max-[400px]:w-[180px] max-[400px]:h-[180px]"
+                    />
+                </div>
 
                 <div className='max-[992px]:text-center'>
                     <Info />
 
-                    <p className="max-w-[34rem] mb-10 leading-[1.8] text-muted-foreground max-[992px]:px-12 max-[992px]:mb-8 max-[576px]:px-4">As a Frontend Developer, I specialize in creating web pages with intuitive UI/UX interfaces using various web technologies. With a year of hands-on experience, I meticulously design and implement user-friendly digital experiences that resonate with audiences.</p>
+                    <p className="max-w-[34rem] mb-10 leading-[1.8] text-muted-foreground max-[992px]:px-12 max-[992px]:mb-8 max-[576px]:px-4">I'm a Full Stack Software Development Engineer from Nagpur with 2.6+ years of experience building scalable web apps, backend APIs, and DevOps pipelines. I've shipped 25+ projects spanning frontend, backend, cloud infrastructure, and Linux system administration. I specialize in crafting end-to-end solutions with modern tech stacks, writing clean code, and managing reliable infrastructure.</p>
 
-                    <a download href={CV} className="button button--flex">
+                    <a download href={CV} className="button hoverable">
                         <span className="button__text">Download CV</span>
                         <svg className="button__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path d="M15.25 22.7502H9.25C3.82 22.7502 1.5 20.4302 1.5 15.0002V9.00024C1.5 3.57024 3.82 1.25024 9.25 1.25024H14.25C14.66 1.25024 15 1.59024 15 2.00024C15 2.41024 14.66 2.75024 14.25 2.75024H9.25C4.64 2.75024 3 4.39024 3 9.00024V15.0002C3 19.6102 4.64 21.2502 9.25 21.2502H15.25C19.86 21.2502 21.5 19.6102 21.5 15.0002V10.0002C21.5 9.59024 21.84 9.25024 22.25 9.25024C22.66 9.25024 23 9.59024 23 10.0002V15.0002C23 20.4302 20.68 22.7502 15.25 22.7502Z" fill="currentColor"></path>

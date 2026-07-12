@@ -4,22 +4,42 @@ const WorkItems = ({ item }) => {
     const { category, image, title, description, demo, github } = item;
 
     return (
-        <div className="bg-card border border-border px-6 py-8 rounded-[1.75rem] shadow-[0_24px_50px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_32px_65px_rgba(0,0,0,0.1)] hover:border-border max-[576px]:px-5">
-            <img src={image} alt={title} className="rounded-[1rem] mb-6" />
+        <div className="card px-6 pt-6 pb-8 max-[576px]:px-5">
+            <div className="relative rounded-[1rem] overflow-hidden mb-5 group">
+                <img
+                    src={image}
+                    alt={title}
+                    loading="lazy"
+                    className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="absolute top-3 left-3 text-[0.625rem] font-medium uppercase tracking-wider bg-background/80 backdrop-blur-sm text-foreground px-2.5 py-1 rounded-full">
+                    {category}
+                </span>
+            </div>
 
             <h3 className="text-sm font-medium mb-2">{title}</h3>
-            <span className="text-xs text-muted-foreground leading-[1.6] block mb-2">{description}</span>
-            <span className="inline-block text-[0.625rem] text-muted-foreground mb-4">{category}</span>
+            <span className="text-xs text-muted-foreground leading-[1.6] block mb-5">{description}</span>
 
-            <div className="flex gap-3">
+            <div className="flex gap-2">
                 {demo && (
-                    <a href={demo} className="text-xs text-foreground inline-flex items-center gap-1 hover:underline" target="_blank" rel="noreferrer">
-                        <i className="bx bx-link-external"></i> Demo
+                    <a
+                        href={demo}
+                        className="hoverable button--small bg-primary text-primary-foreground"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <i className="bx bx-link-external text-sm"></i> Demo
                     </a>
                 )}
                 {github && (
-                    <a href={github} className="text-xs text-foreground inline-flex items-center gap-1 hover:underline" target="_blank" rel="noreferrer">
-                        <i className="bx bxl-github"></i> Github
+                    <a
+                        href={github}
+                        className="hoverable button--small bg-card border border-border text-foreground hover:border-primary hover:text-primary"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <i className="bx bxl-github text-sm"></i> GitHub
                     </a>
                 )}
             </div>

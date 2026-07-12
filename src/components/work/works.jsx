@@ -11,11 +11,11 @@ const Works = () => {
 
     return (
         <div>
-            <div className="flex justify-center gap-8 mb-12 max-[768px]:gap-5">
+            <div className="flex justify-center gap-3 mb-12 flex-wrap max-[768px]:gap-2">
                 {projectNav.map((nav, index) => (
                     <span
                         key={index}
-                        className={`text-sm text-muted-foreground cursor-pointer px-3 py-1 rounded-lg transition-all duration-200 ${item.name === nav.name ? "active-work" : "hover:bg-primary/10"}`}
+                        className={`hoverable text-sm capitalize px-4 py-2 rounded-full cursor-pointer transition-all duration-200 font-medium ${item.name === nav.name ? "active-work pop" : "text-muted-foreground bg-card border border-border hover:border-primary/40 hover:text-foreground"}`}
                         onClick={() => setItem({ name: nav.name })}
                     >
                         {nav.name}
@@ -23,9 +23,11 @@ const Works = () => {
                 ))}
             </div>
 
-            <div className="container grid grid-cols-[repeat(3,minmax(250px,1fr))] gap-x-8 gap-y-20 max-[992px]:grid-cols-[repeat(2,minmax(250px,1fr))] max-[576px]:grid-cols-1 max-[576px]:gap-y-14">
+            <div key={item.name} className="container grid grid-cols-[repeat(3,minmax(250px,1fr))] gap-x-8 gap-y-20 max-[992px]:grid-cols-[repeat(2,minmax(250px,1fr))] max-[576px]:grid-cols-1 max-[576px]:gap-y-14">
                 {projects.map((project, index) => (
-                    <WorkItems item={project} key={index} />
+                    <div key={project.id} className="animate-in slide-up-fade" style={{ animationDelay: `${index * 0.08}s` }}>
+                        <WorkItems item={project} />
+                    </div>
                 ))}
             </div>
         </div>

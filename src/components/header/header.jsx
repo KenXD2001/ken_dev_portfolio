@@ -60,7 +60,7 @@ const Header = ({ toggleTheme, theme }) => {
         const active = activeNav === href
             ? "bg-primary text-primary-foreground after:bg-primary-foreground after:scale-x-100"
             : "hover:bg-primary hover:text-primary-foreground hover:after:bg-primary-foreground hover:after:scale-x-100";
-        return `${base} ${active}`;
+        return `${base} ${active} hoverable`;
     };
 
     const handleNavClick = useCallback((href) => (e) => {
@@ -74,7 +74,7 @@ const Header = ({ toggleTheme, theme }) => {
     return (
         <header className={`w-full fixed top-0 left-0 z-[100] bg-background/40 backdrop-blur-[10px] transition-all duration-300 max-md:bottom-0 max-md:top-auto ${scrolled ? "shadow-[0_2px_4px_-2px_var(--primary)]" : ""}`}>
             <nav className="h-[4.5rem] max-md:h-12 flex justify-between items-center container">
-                <a href="#home" onClick={handleNavClick("#home")} className="font-['Pacifico'] font-bold text-lg text-foreground">Ken@Dev.in</a>
+                <a href="#home" onClick={handleNavClick("#home")} className="font-['Pacifico'] text-2xl font-bold text-foreground hoverable tracking-tight">Ken@Dev.in</a>
 
                 <div className="flex items-center gap-2">
                     <ul className="hidden md:flex md:items-center md:gap-8">
@@ -89,7 +89,7 @@ const Header = ({ toggleTheme, theme }) => {
 
                     <button
                         onClick={toggleTheme}
-                        className="relative flex items-center justify-center w-11 h-11 rounded-full border border-border bg-background/60 text-foreground hover:border-primary/40 hover:bg-primary/10 hover:shadow-sm hover:shadow-primary/20 transition-all duration-300 cursor-pointer"
+                        className="relative flex items-center justify-center w-11 h-11 rounded-full border border-border bg-background/60 text-foreground hover:border-primary/40 hover:bg-primary/10 hover:shadow-sm hover:shadow-primary/20 transition-all duration-300 cursor-pointer hoverable"
                         aria-label="Toggle theme"
                     >
                         <span className="relative w-5 h-5">
@@ -99,7 +99,7 @@ const Header = ({ toggleTheme, theme }) => {
                     </button>
 
                     <button
-                        className="md:hidden text-sm cursor-pointer border border-border p-2.5 rounded-[0.95rem] bg-background/95 hover:scale-105 transition-all"
+                        className="md:hidden text-sm cursor-pointer border border-border p-2.5 rounded-[0.95rem] bg-background/95 hover:scale-105 transition-all hoverable"
                         aria-label="Toggle menu"
                         aria-expanded={toggle}
                         onClick={() => setToggle(!toggle)}
@@ -124,7 +124,7 @@ const Header = ({ toggleTheme, theme }) => {
                         ))}
                     </ul>
                     <button
-                        className="absolute right-[1.3rem] bottom-2 text-2xl cursor-pointer text-foreground hover:text-foreground/80 hover:scale-105 transition-all"
+                        className="absolute right-[1.3rem] bottom-2 text-2xl cursor-pointer text-foreground hover:text-foreground/80 hover:scale-105 transition-all hoverable"
                         onClick={() => setToggle(false)}
                         aria-label="Close menu"
                     >
